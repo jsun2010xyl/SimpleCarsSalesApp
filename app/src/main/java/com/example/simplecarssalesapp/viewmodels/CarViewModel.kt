@@ -7,7 +7,7 @@ import com.example.simplecarssalesapp.internal.lazyDeferred
 class CarViewModel(private val carRepository: CarRepository)
     : ViewModel() {
 
-    val itemList by lazyDeferred {
+    val carList by lazyDeferred {
         carRepository.getCarList()
     }
 }
