@@ -1,7 +1,8 @@
-package com.example.simplecarssalesapp.data.db.entity
+package com.example.simplecarssalesapp.data.model
 
 
-import com.google.gson.annotations.SerializedName
+import com.example.simplecarssalesapp.data.model.Dealer
+import com.example.simplecarssalesapp.data.model.Images
 
 data class Listings(
     val bodytype: String,

@@ -1,7 +1,5 @@
-package com.example.simplecarssalesapp.data.db.entity
+package com.example.simplecarssalesapp.data.model
 
-
-import com.google.gson.annotations.SerializedName
 
 data class Item(
     //val backfillCount: Int,
