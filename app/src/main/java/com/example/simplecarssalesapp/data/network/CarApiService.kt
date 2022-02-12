@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 
-interface ItemApiService {
+interface CarApiService {
 
     @GET("assignment.json")
     fun getItem(
@@ -17,7 +17,7 @@ interface ItemApiService {
     ): Deferred<Item>
 
     companion object {
-        operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): ItemApiService {
+        operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): CarApiService {
 
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(connectivityInterceptor)
@@ -29,7 +29,7 @@ interface ItemApiService {
                 .addCallAdapterFactory(CoroutineCallAdapterFactory()) // for Deferred
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(ItemApiService::class.java)
+                .create(CarApiService::class.java)
         }
 
 
