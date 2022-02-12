@@ -6,7 +6,7 @@ data class Item(
     //val dealerNewCount: Int,
     //val dealerUsedCount: Int,
     //val enhancedCount: Int,
-    val listings: List<Listings>,
+    val listings: List<Vehicle>,
     //val page: Int,
     //val pageSize: Int,
     val searchArea: SearchArea,

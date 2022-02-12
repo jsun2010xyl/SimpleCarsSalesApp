@@ -4,7 +4,7 @@ package com.example.simplecarssalesapp.data.model
 import com.example.simplecarssalesapp.data.model.Dealer
 import com.example.simplecarssalesapp.data.model.Images
 
-data class Listings(
+data class Vehicle(
     val bodytype: String,
     val currentPrice: Double,
     val dealer: Dealer,

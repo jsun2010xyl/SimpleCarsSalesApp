@@ -35,12 +35,7 @@ class CarRepositoryImpl(
 
     private fun persistFetchedCurrentItemList(fetchedItem: Item){
         GlobalScope.launch(Dispatchers.IO) {
-
-            // TODO : upsert
-            val fetchedCarList = mutableListOf<Car>()
-
-
-            carDao.upsert(fetchedCarList)
+            carDao.upsert(getCarList(fetchedItem))
         }
     }
 
