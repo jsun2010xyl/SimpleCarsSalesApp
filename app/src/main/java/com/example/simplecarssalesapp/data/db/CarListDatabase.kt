@@ -19,7 +19,7 @@ abstract class CarListDatabase: RoomDatabase(){
         }
 
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext, CarListDatabase::class.java, "itemdb.db")
+            Room.databaseBuilder(context.applicationContext, CarListDatabase::class.java, "cardb.db")
                 .build()
     }
 }
