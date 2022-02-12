@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import java.lang.Exception
 
-class NetworkDataSourceImpl(private val apiService: ItemApiService) : NetworkDataSource {
+class NetworkDataSourceImpl(private val apiService: CarApiService) : NetworkDataSource {
     private val _downloadedData = MutableLiveData<Item>()
     override val downloadedData: LiveData<Item>
         get() = _downloadedData
