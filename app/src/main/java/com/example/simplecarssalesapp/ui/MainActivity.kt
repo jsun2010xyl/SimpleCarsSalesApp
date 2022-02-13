@@ -3,6 +3,7 @@ package com.example.simplecarssalesapp.ui
 import android.os.Bundle
 import com.example.simplecarssalesapp.R
 import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,11 +48,18 @@ class MainActivity : ScopedActivity(), KodeinAware {
 
             // getting the recyclerview by its id
             recyclerview = findViewById(R.id.recyclerview)
-            adapter = CustomAdapter(it)
+            adapter = CustomAdapter(it) { position -> onListItemClick(position) }
             // Setting the Adapter with the recyclerview
             recyclerview.adapter = adapter
             recyclerview.layoutManager = LinearLayoutManager(context)
         })
+    }
+
+    private fun onListItemClick(position: Int) {
+
+        val intent = Intent(this, CarDetailActivity::class.java).apply {
+        }
+        startActivity(intent)
     }
 
 }
