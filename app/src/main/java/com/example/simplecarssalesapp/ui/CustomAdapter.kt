@@ -30,7 +30,7 @@ class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomA
             "$"+"%,d".format(item.currentPrice.roundToInt())+"   |   "+
                     (item.mileage/1000).toString()+"k mi"
         holder.textView3.text = item.city + ", " + item.state
-        // TODO : 图片无法显示
+        // TODO : images cannot display, maybe sth is wrong with urls
         Picasso.get().load(item.photo).into(holder.imageView);
 
     }
