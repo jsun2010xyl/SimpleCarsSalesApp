@@ -3,7 +3,6 @@ package com.example.simplecarssalesapp.data.repository
 import androidx.lifecycle.LiveData
 import com.example.simplecarssalesapp.data.db.entity.Car
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import com.example.simplecarssalesapp.data.db.CarDao
 import com.example.simplecarssalesapp.data.model.Item

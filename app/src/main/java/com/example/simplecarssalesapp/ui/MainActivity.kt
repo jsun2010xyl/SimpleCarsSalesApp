@@ -1,6 +1,5 @@
 package com.example.simplecarssalesapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.simplecarssalesapp.R
 import android.content.Context
