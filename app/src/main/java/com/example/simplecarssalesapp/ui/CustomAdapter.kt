@@ -29,8 +29,7 @@ class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomA
         holder.textView2.text =
             "$"+item.currentPrice.toString()+" | "+item.mileage.toString()
         holder.textView3.text = item.city + ", " + item.state
-        // TODO : 要throw exception防止url无效或者突然断网
-
+        // TODO : 不确定有没有问题
         Picasso.get().load(item.photo).into(holder.imageView);
 
     }
@@ -47,6 +46,6 @@ class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomA
         val textView2: TextView = itemView.findViewById(R.id.textView2_priceMileage)
         val textView3: TextView = itemView.findViewById(R.id.textView3_location)
         val imageView: ImageView = itemView.findViewById(R.id.imageView1_carPhoto)
-        
+
     }
 }
