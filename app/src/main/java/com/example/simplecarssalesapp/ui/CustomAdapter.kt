@@ -3,6 +3,7 @@ package com.example.simplecarssalesapp.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +14,8 @@ import kotlin.math.roundToInt
 
 class CustomAdapter(
     private val mList: List<Car>,
-    private val onItemClicked: (position: Int) -> Unit)
+    private val onItemClicked: (position: Int) -> Unit,
+    private val onCallButtonClicked: (position: Int) -> Unit)
     : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     // create new views
@@ -21,7 +23,7 @@ class CustomAdapter(
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_view_design, parent, false)
 
-        return ViewHolder(view, onItemClicked)
+        return ViewHolder(view, onItemClicked, onCallButtonClicked)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -43,7 +45,11 @@ class CustomAdapter(
         return mList.size
     }
 
-    class ViewHolder(carView: View, private val onItemClicked: (position: Int) -> Unit)
+    class ViewHolder(
+        carView: View,
+        private val onItemClicked: (position: Int) -> Unit,
+        private val onCallButtonClicked: (position: Int) -> Unit
+    )
         : RecyclerView.ViewHolder(carView), View.OnClickListener {
 
         // 下面这个itemView是系统变量
@@ -51,6 +57,7 @@ class CustomAdapter(
         val textView2: TextView = itemView.findViewById(R.id.textView2_priceMileage)
         val textView3: TextView = itemView.findViewById(R.id.textView3_location)
         val imageView: ImageView = itemView.findViewById(R.id.imageView1_carPhoto)
+        val callButton: Button = itemView.findViewById(R.id.button1_callDealer)
 
         init {
             itemView.setOnClickListener(this)
@@ -58,7 +65,12 @@ class CustomAdapter(
 
         override fun onClick(v: View) {
             val position = adapterPosition
-            onItemClicked(position)
+            if (v == callButton){
+                onCallButtonClicked(position)
+            }else{
+                onItemClicked(position)
+            }
+
         }
 
     }

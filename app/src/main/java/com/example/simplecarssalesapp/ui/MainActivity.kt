@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.example.simplecarssalesapp.R
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,7 +49,9 @@ class MainActivity : ScopedActivity(), KodeinAware {
 
             // getting the recyclerview by its id
             recyclerview = findViewById(R.id.recyclerview)
-            adapter = CustomAdapter(it) { position -> onListItemClick(position) }
+            adapter = CustomAdapter(it,
+                { position -> onListItemClick(position) },
+                { position -> onCallButtonClick(position)})
             // Setting the Adapter with the recyclerview
             recyclerview.adapter = adapter
             recyclerview.layoutManager = LinearLayoutManager(context)
@@ -60,6 +63,20 @@ class MainActivity : ScopedActivity(), KodeinAware {
         val intent = Intent(this, CarDetailActivity::class.java).apply {
         }
         startActivity(intent)
+    }
+
+    private fun onCallButtonClick(position: Int) {
+        // TODO : make a call
+
+    }
+
+    fun dialPhoneNumber(phoneNumber: String) {
+        val intent = Intent(Intent.ACTION_DIAL).apply {
+            data = Uri.parse("tel:$phoneNumber")
+        }
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        }
     }
 
 }
