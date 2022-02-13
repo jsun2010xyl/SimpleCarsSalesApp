@@ -61,6 +61,7 @@ class CustomAdapter(
 
         init {
             itemView.setOnClickListener(this)
+            callButton.setOnClickListener(this)
         }
 
         override fun onClick(v: View) {

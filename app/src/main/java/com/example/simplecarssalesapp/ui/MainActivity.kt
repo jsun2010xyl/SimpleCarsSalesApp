@@ -5,10 +5,12 @@ import com.example.simplecarssalesapp.R
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.simplecarssalesapp.data.db.entity.Car
 import com.example.simplecarssalesapp.ui.base.ScopedActivity
 import com.example.simplecarssalesapp.viewmodels.CarViewModel
 import com.example.simplecarssalesapp.viewmodels.CarViewModelFactory
@@ -28,6 +30,8 @@ class MainActivity : ScopedActivity(), KodeinAware {
     private lateinit var recyclerview: RecyclerView
     private lateinit var adapter: CustomAdapter
 
+    private lateinit var carList: LiveData<List<Car>>
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -41,42 +45,34 @@ class MainActivity : ScopedActivity(), KodeinAware {
     }
 
     private fun bindUI(context: Context) = launch(Dispatchers.Main) {
-        val carList = viewModel.carList.await()
+        carList = viewModel.carList.await()
         carList.observe(this@MainActivity, Observer {
             if (it == null) {
                 return@Observer
             }
-
             // getting the recyclerview by its id
             recyclerview = findViewById(R.id.recyclerview)
             adapter = CustomAdapter(it,
-                { position -> onListItemClick(position) },
-                { position -> onCallButtonClick(position)})
+                { position ->
+                    // TODO
+                    val intent = Intent(context, CarDetailActivity::class.java).apply {
+                    }
+                    startActivity(intent)
+                },
+                { position ->
+                    dialPhoneNumber(it[position].phone)
+                })
             // Setting the Adapter with the recyclerview
             recyclerview.adapter = adapter
             recyclerview.layoutManager = LinearLayoutManager(context)
         })
     }
 
-    private fun onListItemClick(position: Int) {
-
-        val intent = Intent(this, CarDetailActivity::class.java).apply {
-        }
-        startActivity(intent)
-    }
-
-    private fun onCallButtonClick(position: Int) {
-        // TODO : make a call
-
-    }
-
-    fun dialPhoneNumber(phoneNumber: String) {
+    private fun dialPhoneNumber(phoneNumber: String) {
         val intent = Intent(Intent.ACTION_DIAL).apply {
             data = Uri.parse("tel:$phoneNumber")
         }
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivity(intent)
-        }
+        startActivity(intent)
     }
 
 }
