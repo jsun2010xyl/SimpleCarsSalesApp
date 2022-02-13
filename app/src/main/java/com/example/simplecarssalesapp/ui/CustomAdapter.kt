@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplecarssalesapp.R
 import com.example.simplecarssalesapp.data.db.entity.Car
+import com.squareup.picasso.Picasso
 
 class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
@@ -29,7 +30,8 @@ class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomA
             "$"+item.currentPrice.toString()+" | "+item.mileage.toString()
         holder.textView3.text = item.city + ", " + item.state
         // TODO : 要throw exception防止url无效或者突然断网
-        holder.imageView
+
+        Picasso.get().load(item.photo).into(holder.imageView);
 
     }
 
@@ -45,5 +47,6 @@ class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomA
         val textView2: TextView = itemView.findViewById(R.id.textView2_priceMileage)
         val textView3: TextView = itemView.findViewById(R.id.textView3_location)
         val imageView: ImageView = itemView.findViewById(R.id.imageView1_carPhoto)
+        
     }
 }
