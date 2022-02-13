@@ -14,16 +14,14 @@ data class Car(
     val bodytype: String,
     @SerializedName("currentPrice")
     val currentPrice: Double,
-    //@SerializedName("")
-    //val dealer: Dealer,
     @SerializedName("drivetype")
     val drivetype: String,
     @SerializedName("engine")
     val engine: String,
     @SerializedName("exteriorColor")
     val exteriorColor: String,
-    //@SerializedName("images")
-    //val images: Images,
+    @SerializedName("fuel")
+    val fuel: String,
     @SerializedName("interiorColor")
     val interiorColor: String,
     @SerializedName("make")

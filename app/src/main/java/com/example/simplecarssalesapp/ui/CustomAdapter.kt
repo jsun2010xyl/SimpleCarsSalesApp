@@ -29,12 +29,9 @@ class CustomAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val item = mList[position]
-        holder.textView1.text =
-            item.year.toString()+" "+item.make+" "+item.model+" "+item.trim
-        holder.textView2.text =
-            "$"+"%,d".format(item.currentPrice.roundToInt())+"   |   "+
-                    (item.mileage/1000).toString()+"k mi"
-        holder.textView3.text = item.city + ", " + item.state
+        holder.textView1.text = getYearMakeModelTrim(item.year, item.make, item.model, item.trim)
+        holder.textView2.text = getPriceMileage(item.currentPrice, item.mileage)
+        holder.textView3.text = getLocation(item.city, item.state)
         // TODO : images cannot display, maybe sth is wrong with urls
         Picasso.get().load(item.photo).into(holder.imageView);
 

@@ -54,8 +54,23 @@ class MainActivity : ScopedActivity(), KodeinAware {
             recyclerview = findViewById(R.id.recyclerview)
             adapter = CustomAdapter(it,
                 { position ->
-                    // TODO
                     val intent = Intent(context, CarDetailActivity::class.java).apply {
+                        putExtra("photo", it[position].photo)
+                        putExtra("phone", it[position].phone)
+                        putExtra("yearMakeModelTrim",
+                            getYearMakeModelTrim(it[position].year, it[position].make,
+                                it[position].model, it[position].trim))
+                        putExtra("location",
+                            getLocation(it[position].city, it[position].state))
+                        putExtra("price", it[position].currentPrice)
+                        putExtra("mileage", it[position].mileage)
+                        putExtra("exteriorColor", it[position].exteriorColor)
+                        putExtra("interiorColor", it[position].interiorColor)
+                        putExtra("driveType", it[position].drivetype)
+                        putExtra("transmission", it[position].transmission)
+                        putExtra("bodyStyle", it[position].bodytype)
+                        putExtra("engine", it[position].engine)
+                        putExtra("fuel", it[position].fuel)
                     }
                     startActivity(intent)
                 },
