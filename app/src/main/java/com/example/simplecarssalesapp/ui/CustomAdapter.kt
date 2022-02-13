@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.simplecarssalesapp.R
 import com.example.simplecarssalesapp.data.db.entity.Car
 import com.squareup.picasso.Picasso
+import kotlin.math.roundToInt
 
 class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
@@ -25,11 +26,11 @@ class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomA
         val item = mList[position]
         holder.textView1.text =
             item.year.toString()+" "+item.make+" "+item.model+" "+item.trim
-        // TODO : currentPrice是Double，需要format
         holder.textView2.text =
-            "$"+item.currentPrice.toString()+" | "+item.mileage.toString()
+            "$"+"%,d".format(item.currentPrice.roundToInt())+"   |   "+
+                    (item.mileage/1000).toString()+"k mi"
         holder.textView3.text = item.city + ", " + item.state
-        // TODO : 不确定有没有问题
+        // TODO : 图片无法显示
         Picasso.get().load(item.photo).into(holder.imageView);
 
     }

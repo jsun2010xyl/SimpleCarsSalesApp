@@ -40,8 +40,8 @@ class MainActivity : ScopedActivity(), KodeinAware {
     }
 
     private fun bindUI(context: Context) = launch(Dispatchers.Main) {
-        val itemList = viewModel.carList.await()
-        itemList.observe(this@MainActivity, Observer {
+        val carList = viewModel.carList.await()
+        carList.observe(this@MainActivity, Observer {
             if (it == null) {
                 return@Observer
             }
