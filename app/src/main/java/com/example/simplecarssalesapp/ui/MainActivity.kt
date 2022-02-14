@@ -62,8 +62,8 @@ class MainActivity : ScopedActivity(), KodeinAware {
                                 it[position].model, it[position].trim))
                         putExtra("location",
                             getLocation(it[position].city, it[position].state))
-                        putExtra("price", it[position].currentPrice)
-                        putExtra("mileage", it[position].mileage)
+                        putExtra("priceMileage",
+                            getPriceMileage(it[position].currentPrice, it[position].mileage))
                         putExtra("exteriorColor", it[position].exteriorColor)
                         putExtra("interiorColor", it[position].interiorColor)
                         putExtra("driveType", it[position].drivetype)
