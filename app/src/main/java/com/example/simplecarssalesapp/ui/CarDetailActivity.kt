@@ -16,7 +16,12 @@ class CarDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_car_detail)
 
         val imageView: ImageView = findViewById(R.id.imageView1_carPhoto)
-        Picasso.get().load(intent.getStringExtra("photo")).into(imageView);
+        // Something wrong with the given uri, cannot find the image
+        //Picasso.get().load(intent.getStringExtra("photo")).into(imageView);
+
+        // When we use a working uri, the image can be displayed
+        val url = "https://imageio.forbes.com/specials-images/imageserve/5d3703b3090f4300070d570d/2020-Cadillac-CT5/0x0.jpg?fit=crop&format=jpg&crop=4842,2723,x288,y538,safe"
+        Picasso.get().load(url).into(imageView);
 
         val name: TextView = findViewById(R.id.textView1_yearMakeModelTrim)
         name.text = intent.getStringExtra("yearMakeModelTrim")

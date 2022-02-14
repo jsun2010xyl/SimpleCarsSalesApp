@@ -33,7 +33,11 @@ class CustomAdapter(
         holder.textView2.text = getPriceMileage(item.currentPrice, item.mileage)
         holder.textView3.text = getLocation(item.city, item.state)
         // TODO : images cannot display, maybe sth is wrong with urls
-        Picasso.get().load(item.photo).into(holder.imageView);
+        //Picasso.get().load(item.photo).into(holder.imageView);
+
+        // When we use a working uri, the image can be displayed
+        val url = "https://imageio.forbes.com/specials-images/imageserve/5d3703b3090f4300070d570d/2020-Cadillac-CT5/0x0.jpg?fit=crop&format=jpg&crop=4842,2723,x288,y538,safe"
+        Picasso.get().load(url).into(holder.imageView);
 
     }
 
@@ -46,10 +50,8 @@ class CustomAdapter(
         carView: View,
         private val onItemClicked: (position: Int) -> Unit,
         private val onCallButtonClicked: (position: Int) -> Unit
-    )
-        : RecyclerView.ViewHolder(carView), View.OnClickListener {
+    ) : RecyclerView.ViewHolder(carView), View.OnClickListener {
 
-        // 下面这个itemView是系统变量
         val textView1: TextView = itemView.findViewById(R.id.textView1_YearMakeModelTrim)
         val textView2: TextView = itemView.findViewById(R.id.textView2_priceMileage)
         val textView3: TextView = itemView.findViewById(R.id.textView3_location)

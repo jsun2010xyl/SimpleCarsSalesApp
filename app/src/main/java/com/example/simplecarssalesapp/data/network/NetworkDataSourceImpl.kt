@@ -15,7 +15,9 @@ class NetworkDataSourceImpl(private val apiService: CarApiService) : NetworkData
         try {
             val fetchedData = apiService.getItem().await()
             _downloadedData.postValue(fetchedData)
+
         }catch(e: Exception){
+            // TODO : there may be other exceptions, like cannot find the file
             Log.e("Connectivity", "No Internet connection.", e)
         }
     }
