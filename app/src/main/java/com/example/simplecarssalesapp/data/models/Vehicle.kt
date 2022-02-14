@@ -1,8 +1,5 @@
-package com.example.simplecarssalesapp.data.model
+package com.example.simplecarssalesapp.data.models
 
-
-import com.example.simplecarssalesapp.data.model.Dealer
-import com.example.simplecarssalesapp.data.model.Images
 
 data class Vehicle(
     val bodytype: String,
@@ -11,6 +8,7 @@ data class Vehicle(
     val drivetype: String,
     val engine: String,
     val exteriorColor: String,
+    val fuel: String,
     val images: Images,
     val interiorColor: String,
     val make: String,

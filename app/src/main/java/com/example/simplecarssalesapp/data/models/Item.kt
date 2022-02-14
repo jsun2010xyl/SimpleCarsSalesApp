@@ -1,4 +1,4 @@
-package com.example.simplecarssalesapp.data.model
+package com.example.simplecarssalesapp.data.models
 
 
 data class Item(

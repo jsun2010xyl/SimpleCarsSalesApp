@@ -1,6 +1,6 @@
 package com.example.simplecarssalesapp.data.network
 
-import com.example.simplecarssalesapp.data.model.Item
+import com.example.simplecarssalesapp.data.models.Item
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
