@@ -5,7 +5,7 @@ import com.example.simplecarssalesapp.data.db.entity.Car
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.simplecarssalesapp.data.db.CarDao
-import com.example.simplecarssalesapp.data.model.Item
+import com.example.simplecarssalesapp.data.models.Item
 import com.example.simplecarssalesapp.data.network.NetworkDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
