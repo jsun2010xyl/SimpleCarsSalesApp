@@ -40,7 +40,7 @@ class CarRepositoryImpl(
 
     @RequiresApi(Build.VERSION_CODES.O)
     private suspend fun initItemList(){
-        // TODO : if (true)
+        // Always fetch the data
         if (true){
             fetchItemList()
             //Log.i("Msg", "Downloaded data from aws.")
