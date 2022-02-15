@@ -15,8 +15,10 @@ class CarViewModel(private val carRepository: CarRepository)
     }
 
     // Using Rx
+    /*
     fun getCars(): Observable<List<Car>> {
         return carRepository.getCars()
             .map { UsersList(it, "Users loaded successfully!") }
     }
+    */
 }

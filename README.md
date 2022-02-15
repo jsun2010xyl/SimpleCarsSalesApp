@@ -2,6 +2,8 @@
 
 Using Coroutines, Retrofit, Room and MVVM.
 
+For the next step, I will revise it using Rx instead of Coroutines.
+
 To see the app running:
 https://www.youtube.com/watch?v=OcHys77sEI8
 
