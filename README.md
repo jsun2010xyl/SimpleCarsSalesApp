@@ -1,6 +1,6 @@
 # Simple Cars Sales App
 
-Using Coroutines, Retrofit, Room and MVVM.
+Independent Android project using Coroutines, Retrofit, Room and MVVM.
 
 For the next step, I will revise it using Rx instead of Coroutines.
 
