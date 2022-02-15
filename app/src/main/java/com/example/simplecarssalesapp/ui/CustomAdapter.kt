@@ -32,12 +32,12 @@ class CustomAdapter(
         holder.textView1.text = getYearMakeModelTrim(item.year, item.make, item.model, item.trim)
         holder.textView2.text = getPriceMileage(item.currentPrice, item.mileage)
         holder.textView3.text = getLocation(item.city, item.state)
-        // TODO : images cannot display, maybe sth is wrong with urls
-        //Picasso.get().load(item.photo).into(holder.imageView);
+        // images cannot display, maybe sth is wrong with urls
+        Picasso.get().load(item.photo).into(holder.imageView);
 
         // When we use a working uri, the image can be displayed
-        val url = "https://imageio.forbes.com/specials-images/imageserve/5d3703b3090f4300070d570d/2020-Cadillac-CT5/0x0.jpg?fit=crop&format=jpg&crop=4842,2723,x288,y538,safe"
-        Picasso.get().load(url).into(holder.imageView);
+        //val uri = "https://imageio.forbes.com/specials-images/imageserve/5d3703b3090f4300070d570d/2020-Cadillac-CT5/0x0.jpg?fit=crop&format=jpg&crop=4842,2723,x288,y538,safe"
+        //Picasso.get().load(uri).into(holder.imageView);
 
     }
 
